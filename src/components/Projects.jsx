@@ -7,43 +7,61 @@ const Projects = () => {
   const wpProjects = [
     {
       title: "SmritiVerse",
-      desc: "Modern corporate website with custom theme, SEO optimization, and advanced contact forms.",
+      desc: "A visually stunning memorial and remembrance platform built with a custom WordPress theme. Features elegant design, photo galleries, tribute sections, family tree integration, and easy content management for preserving memories.",
       tech: ["WordPress", "PHP", "CSS3", "Elementor"],
       image: "../src/assets/images/smritiverse.png",
       link: "https://smritiverse.org/",
     },
     {
       title: "3PDTechnologies",
-      desc: "Full-featured WooCommerce store with payment integration and responsive design.",
+      desc: "Professional IT services company website showcasing digital transformation solutions, software development, cloud services, and cybersecurity offerings. Clean, modern layout with service highlights, client testimonials, and contact forms.",
       tech: ["WordPress", "Tatsu", "PHP", "JS"],
       image: "../src/assets/images/3pdtech.png",
       link: "https://3pdtech.digital/",
     },
     {
       title: "I am Samarth",
-      desc: "Full-featured WooCommerce store with payment integration and responsive design.",
+      desc: "Inspirational personal branding and motivational platform featuring blogs, success stories, life coaching content, video embeds, and interactive community sections. Built with a highly customized and responsive WordPress theme.",
       tech: ["WordPress", "Elementor", "PHP", "JS"],
       image: "../src/assets/images/iamsamarth.png",
       link: "https://iamsamarth.com/",
+    },
+    {
+      title: "Samarth CSR",
+      desc: "Corporate Social Responsibility initiative website highlighting education, healthcare, environment, and community development programs. Includes impact reports, donation options, photo galleries, and transparent reporting features.",
+      tech: ["WordPress", "Elementor", "PHP", "JS", "Bootstrap"],
+      image: "../src/assets/images/Csr.png",
+      link: "https://samarthtrust.in/csr/",
     },
   ];
 
   const mernProjects = [
     {
       title: "Real-Time Chat Application",
-      desc: "WebSocket-powered chat app with authentication, group chats, and message history.",
+      desc: "A full-stack real-time messaging platform with user authentication, private/group chats, live typing indicators, message reactions, online/offline status, and persistent chat history using WebSockets for instant communication.",
       tech: ["React", "Node.js", "MongoDB", "Socket.io"],
       image: "/images/projects/chat-app.jpg",
-      link: "https://chat-app-demo.yourdomain.com", // ← optional for MERN too
+      link: "https://your-chat-app-demo.com", // replace with real if deployed
     },
     {
       title: "Task Management Dashboard",
-      desc: "Kanban-style project management tool with drag-and-drop and real-time updates.",
+      desc: "Kanban-style project management tool with drag-and-drop boards, task prioritization, real-time collaboration, user roles, deadlines, notifications, and progress tracking — built with modern MERN stack for seamless performance.",
       tech: ["React", "Express", "MongoDB", "Tailwind"],
       image: "/images/projects/task-dashboard.jpg",
-      link: "https://task-dashboard-demo.yourdomain.com", // ← optional
+      link: "https://your-task-demo.com", // replace with real if deployed
     },
-    // Add more MERN projects
+    // You can add more MERN projects here later
+  ];
+
+  const externalProjects = [
+    {
+      title: "Singh Properties",
+      desc: "Real estate agency website featuring property listings, advanced search filters, high-quality photo galleries, virtual tours, inquiry forms, and client testimonials to help users find their dream homes in Pune and surrounding areas.",
+      tech: ["WordPress", "PHP", "JS"],
+      image: "../src/assets/images/singhproperties.png",
+      link: "https://singhpropertiespune.in/",
+    },
+    // Add more external/client projects here
   ];
 
   const ProjectCard = ({ title, desc, tech, image, link }) => (
@@ -76,13 +94,13 @@ const Projects = () => {
           ))}
         </div>
 
-        {/* Live Demo Button (only shown if link exists) */}
+        {/* Live Demo Button */}
         {link && (
           <a
             href={link}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-cyan-600 hover:bg-cyan-500 text-white font-medium text-sm md:text-base py-3 px-6 rounded-lg text-center transition-all duration-300 shadow-md shadow-cyan-500/30 hover:shadow-cyan-500/50"
+            className="mt-auto inline-block bg-cyan-600 hover:bg-cyan-500 text-white font-medium text-sm md:text-base py-3 px-6 rounded-lg text-center transition-all duration-300 shadow-md shadow-cyan-500/30 hover:shadow-cyan-500/50"
           >
             View Live Demo →
           </a>
@@ -90,6 +108,20 @@ const Projects = () => {
       </div>
     </div>
   );
+
+  // Map tab to project array
+  const getActiveProjects = () => {
+    switch (activeTab) {
+      case 'wordpress':
+        return wpProjects;
+      case 'mern':
+        return mernProjects;
+      case 'external':
+        return externalProjects;
+      default:
+        return wpProjects;
+    }
+  };
 
   return (
     <section id="projects" className="py-24 bg-slate-950">
@@ -107,36 +139,46 @@ const Projects = () => {
           <div className="inline-flex bg-slate-800/60 backdrop-blur-md rounded-full border border-cyan-900/50 p-1.5">
             <button
               onClick={() => setActiveTab('wordpress')}
-              className={`px-6 py-3 rounded-full text-base md:text-lg font-medium transition-all duration-300 ${
+              className={`px-5 py-3 rounded-full text-sm md:text-base font-medium transition-all duration-300 ${
                 activeTab === 'wordpress'
                   ? 'bg-cyan-600 text-white shadow-lg shadow-cyan-500/30'
                   : 'text-cyan-400 hover:text-cyan-300'
               }`}
             >
-              WordPress Projects
+              WordPress
             </button>
             <button
               onClick={() => setActiveTab('mern')}
-              className={`px-6 py-3 rounded-full text-base md:text-lg font-medium transition-all duration-300 ${
+              className={`px-5 py-3 rounded-full text-sm md:text-base font-medium transition-all duration-300 ${
                 activeTab === 'mern'
                   ? 'bg-cyan-600 text-white shadow-lg shadow-cyan-500/30'
                   : 'text-cyan-400 hover:text-cyan-300'
               }`}
             >
-              MERN Projects
+              MERN
+            </button>
+            <button
+              onClick={() => setActiveTab('external')}
+              className={`px-5 py-3 rounded-full text-sm md:text-base font-medium transition-all duration-300 ${
+                activeTab === 'external'
+                  ? 'bg-cyan-600 text-white shadow-lg shadow-cyan-500/30'
+                  : 'text-cyan-400 hover:text-cyan-300'
+              }`}
+            >
+              External / Client
             </button>
           </div>
         </div>
 
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
-          {(activeTab === 'wordpress' ? wpProjects : mernProjects).map((project, index) => (
+          {getActiveProjects().map((project, index) => (
             <ProjectCard key={index} {...project} />
           ))}
         </div>
 
         {/* Empty state */}
-        {(activeTab === 'wordpress' ? wpProjects : mernProjects).length === 0 && (
+        {getActiveProjects().length === 0 && (
           <p className="text-center text-slate-400 text-xl mt-12">
             More projects coming soon...
           </p>

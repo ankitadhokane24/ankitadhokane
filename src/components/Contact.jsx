@@ -1,42 +1,93 @@
-// src/components/Contact.jsx
+// src/components/Contact.tsx
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faPhone,
+  faEnvelope,
+  faMapMarkerAlt,
+} from '@fortawesome/free-solid-svg-icons';
+import {
+  faLinkedin,
+  faGithub,
+  faWhatsapp,
+} from '@fortawesome/free-brands-svg-icons';
+
 const Contact = () => {
+  const email = "ankitadhokane24@gmail.com";
+  const phone = "+91 8767539448";
+  const whatsapp = "918767539448"; // without + for WhatsApp link
+
   return (
-    <section id="contact" className="py-24">
+    <section id="contact" className="py-20 md:py-28 bg-slate-950">
       <div className="max-w-5xl mx-auto px-6 text-center">
-        <h2 className="text-6xl md:text-7xl font-black mb-16 relative">
-          Get in Touch
-          <span className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-24 h-1 bg-cyan-500 rounded-full glow-cyan"></span>
-        </h2>
-        <p className="text-2xl text-cyan-300 mb-12 uppercase tracking-wider">LET'S CONNECT</p>
+        {/* Heading - smaller */}
+        <div className="mb-12">
+          <h2 className="text-4xl md:text-5xl font-black text-white">
+            Get in Touch
+          </h2>
+          <div className="w-20 h-1 bg-cyan-500 mx-auto mt-4 rounded-full shadow-[0_0_15px_#06b6d4]"></div>
+        </div>
 
-        <div className="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto mb-16">
-          <div className="p-10 bg-slate-800/70 rounded-2xl border border-cyan-900/50 glow-cyan">
-            <i className="fas fa-phone text-5xl text-cyan-400 mb-6 block"></i>
-            <p className="text-2xl font-bold">+91 12345 67890</p>
+        <p className="text-lg md:text-xl text-cyan-300 mb-10 uppercase tracking-wider">
+          LET'S CONNECT
+        </p>
+
+        {/* Contact Info Cards - smaller text */}
+        <div className="grid md:grid-cols-3 gap-6 mb-12">
+          {/* Phone */}
+          <div className="p-6 bg-slate-800/70 rounded-2xl border border-cyan-900/50 glow-cyan transition-all duration-300 hover:scale-[1.02] flex flex-col items-center">
+            <FontAwesomeIcon icon={faPhone} className="text-4xl text-cyan-400 mb-4" />
+            <p className="text-lg md:text-xl font-bold text-white mb-1">{phone}</p>
+            <p className="text-slate-400 text-xs md:text-sm">Call or WhatsApp</p>
           </div>
-          <div className="p-10 bg-slate-800/70 rounded-2xl border border-cyan-900/50 glow-cyan">
-            <i className="fas fa-envelope text-5xl text-cyan-400 mb-6 block"></i>
-            <p className="text-2xl font-bold">deo@example.com</p>
+
+          {/* Email */}
+          <div className="p-6 bg-slate-800/70 rounded-2xl border border-cyan-900/50 glow-cyan transition-all duration-300 hover:scale-[1.02] flex flex-col items-center overflow-hidden">
+            <FontAwesomeIcon icon={faEnvelope} className="text-4xl text-cyan-400 mb-4" />
+            <p className="text-lg md:text-xl font-bold text-white break-all text-center">
+              {email}
+            </p>
+          </div>
+
+          {/* Location */}
+          <div className="p-6 bg-slate-800/70 rounded-2xl border border-cyan-900/50 glow-cyan transition-all duration-300 hover:scale-[1.02] flex flex-col items-center">
+            <FontAwesomeIcon icon={faMapMarkerAlt} className="text-4xl text-cyan-400 mb-4" />
+            <p className="text-lg md:text-xl font-bold text-white mb-1">Nashik, Maharashtra</p>
+            <p className="text-slate-400 text-xs md:text-sm">India</p>
           </div>
         </div>
 
-        <div className="flex justify-center gap-12 text-5xl mb-12">
-          <a href="#" className="text-cyan-400 hover:text-cyan-300 transition glow-cyan-hover">
-            <i className="fab fa-linkedin"></i>
+        {/* Social Icons - slightly smaller */}
+        <div className="flex justify-center gap-8 md:gap-10 text-4xl md:text-5xl mb-10">
+          <a
+            href="https://www.linkedin.com/in/ankitadhokane/" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-cyan-400 hover:text-cyan-300 transition glow-cyan-hover transform hover:scale-110"
+          >
+            <FontAwesomeIcon icon={faLinkedin} />
           </a>
-          <a href="#" className="text-cyan-400 hover:text-cyan-300 transition glow-cyan-hover">
-            <i className="fab fa-github"></i>
+          <a
+            href="https://github.com/ankitadhokane24/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-cyan-400 hover:text-cyan-300 transition glow-cyan-hover transform hover:scale-110"
+          >
+            <FontAwesomeIcon icon={faGithub} />
           </a>
-          <a href="#" className="text-cyan-400 hover:text-cyan-300 transition glow-cyan-hover">
-            <i className="fab fa-twitter"></i>
-          </a>
-          <a href="#" className="text-cyan-400 hover:text-cyan-300 transition glow-cyan-hover">
-            <i className="fab fa-instagram"></i>
+          <a
+            href={`https://wa.me/${whatsapp}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-cyan-400 hover:text-cyan-300 transition glow-cyan-hover transform hover:scale-110"
+          >
+            <FontAwesomeIcon icon={faWhatsapp} />
           </a>
         </div>
 
-        <p className="text-slate-400 text-lg">
-          Open to collaborations and opportunities
+        {/* Final Message - smaller */}
+        <p className="text-slate-300 text-base md:text-lg max-w-3xl mx-auto">
+          Open to collaborations, freelance opportunities, full-time roles, or just a casual chat about tech.  
+          Feel free to reach out — I usually reply within 24 hours!
         </p>
       </div>
     </section>

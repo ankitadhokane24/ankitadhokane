@@ -25,7 +25,7 @@ function App() {
       
       {/* Footer */}
       <footer className="py-12 text-center border-t border-cyan-900/30 text-slate-500">
-        <p>© 2026 Deo – Built with passion in Akola</p>
+        <p>© 2026 Ankita Dhokane</p>
       </footer>
     </div>
   );
