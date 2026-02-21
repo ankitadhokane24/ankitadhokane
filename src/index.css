@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+/* Fade edges for smooth look */
+.mask-fade-x {
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+/* Left → Right carousel */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee linear infinite;
+  display: flex;
+  width: max-content;
+}
+
+/* Right → Left carousel */
+.animate-marquee-reverse {
+  animation: marquee-reverse linear infinite;
+  display: flex;
+  width: max-content;
+}
+
+@keyframes marquee-reverse {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+/* Pause on hover */
+.animate-marquee:hover,
+.animate-marquee-reverse:hover {
+  animation-play-state: paused;
+}
