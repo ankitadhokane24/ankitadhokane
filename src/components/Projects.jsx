@@ -1,5 +1,12 @@
 // src/components/Projects.tsx
 import { useState } from 'react';
+import smritiverse from '../assets/images/smritiverse.png';
+import pdtech from '../assets/images/3pdtech.png';
+import iamsamarth from '../assets/images/iamsamarth.png';
+import samarthcsr from '../assets/images/Csr.png';
+import omelectricals from '../assets/images/Omelectricals.png';
+import singhproperties from '../assets/images/singhproperties.png';
+import silverlotusschool from '../assets/images/SilverLotusSchool.png';
 
 const Projects = () => {
   const [activeTab, setActiveTab] = useState('wordpress');
@@ -9,28 +16,28 @@ const Projects = () => {
       title: "SmritiVerse",
       desc: "Memorial platform with custom theme, photo galleries, tribute sections, family tree, and easy content management for preserving memories.",
       tech: ["WordPress", "PHP", "CSS3", "Elementor"],
-      image: "../src/assets/images/smritiverse.png",
+      image: {smritiverse},
       link: "https://smritiverse.org/",
     },
     {
       title: "3PDTechnologies",
       desc: "IT services website showcasing software development, cloud solutions, cybersecurity, testimonials, and modern responsive layout.",
       tech: ["WordPress", "Tatsu", "PHP", "JS"],
-      image: "../src/assets/images/3pdtech.png",
+      image: {pdtech},
       link: "https://3pdtech.digital/",
     },
     {
       title: "I am Samarth",
       desc: "Motivational platform with blogs, success stories, coaching content, video embeds, and interactive community features.",
       tech: ["WordPress", "Elementor", "PHP", "JS"],
-      image: "../src/assets/images/iamsamarth.png",
+      image: {iamsamarth},
       link: "https://iamsamarth.com/",
     },
     {
       title: "Samarth CSR",
       desc: "CSR initiative site highlighting education, healthcare, environment programs, impact reports, donation options, and galleries.",
       tech: ["WordPress", "Elementor", "PHP", "JS", "Bootstrap"],
-      image: "../src/assets/images/Csr.png",
+      image: {samarthcsr},
       link: "https://samarthtrust.in/csr/",
     },
   ];
@@ -40,7 +47,7 @@ const Projects = () => {
       title: "ElectroTrack – Inventory & HR Management System",
       desc: "Ongoing in-progress project for electrical goods inventory tracking, employee attendance, salary calculation, reports, and admin dashboard using MERN stack.",
       tech: ["React", "Node.js", "Express", "MongoDB"],
-      image: "../src/assets/images/Omelectricals.png",
+      image: {omelectricals},
       link: "#",
       inProgress: true,
     },
@@ -51,14 +58,14 @@ const Projects = () => {
       title: "Singh Properties",
       desc: "Real estate portal with property listings, advanced search, photo galleries, virtual tours, inquiry forms, and client testimonials.",
       tech: ["WordPress", "PHP", "JS"],
-      image: "../src/assets/images/singhproperties.png",
+      image: {singhproperties},
       link: "https://singhpropertiespune.in/",
     },
     {
       title: "Silver Lotus School",
       desc: "Basic static school website showcasing institution details, facilities, infrastructure, academic programs, admission process, photo gallery, and contact information with a clean and responsive design.",
       tech: ["WordPress", "PHP", "JS"],
-      image: "../src/assets/images/SilverLotusSchool.png",
+      image: {silverlotusschool},
       link: "https://silverlotusschool.com/",
     },
   ];
