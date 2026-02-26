@@ -12,8 +12,6 @@ import {
   faElementor,
 } from '@fortawesome/free-brands-svg-icons';
 import { faDatabase, faServer, faPuzzlePiece } from '@fortawesome/free-solid-svg-icons';
-
-// Import the Postman icon from react-icons
 import { SiPostman } from 'react-icons/si';
 
 const Skills = () => {
@@ -31,7 +29,12 @@ const Skills = () => {
     { name: 'PHP',         icon: faPhp,     color: 'text-indigo-400' },
     { name: 'Node.js',     icon: faNodeJs,  color: 'text-green-500' },
     { name: 'Express.js',  icon: faServer,  color: 'text-indigo-500' },
+  ];
+
+  // Database (MongoDB + MySQL)
+  const database = [
     { name: 'MongoDB',     icon: faDatabase, color: 'text-emerald-400' },
+    { name: 'MySQL',       icon: faDatabase, color: 'text-blue-500' },
   ];
 
   // CMS & Page Builders
@@ -41,10 +44,10 @@ const Skills = () => {
     { name: 'Tatsu',       icon: faWordpress, color: 'text-purple-600' },
   ];
 
-  // Tools & Others – Postman with react-icons
+  // Tools & Others
   const toolsOthers = [
     { name: 'Git',         icon: faGitAlt,  color: 'text-orange-600' },
-    { name: 'Postman',     icon: SiPostman, color: 'text-orange-500' }, // ← using react-icons
+    { name: 'Postman',     icon: SiPostman, color: 'text-orange-500' },
   ];
 
   const SkillCategoryCard = ({ title, skills }) => (
@@ -65,16 +68,14 @@ const Skills = () => {
             className="flex flex-col items-center text-center group"
           >
             {typeof skill.icon === 'function' ? (
-              // For react-icons components (like SiPostman)
               <skill.icon className={`text-4xl md:text-5xl mb-3 ${skill.color} transition-transform duration-300 group-hover:scale-110`} />
             ) : (
-              // For Font Awesome icons
               <FontAwesomeIcon
                 icon={skill.icon}
                 className={`text-4xl md:text-5xl mb-3 ${skill.color} transition-transform duration-300 group-hover:scale-110`}
               />
             )}
-            <p className="text-sm md:text-base font-medium text-white">
+            <p className="text-sm md:text-base font-medium text-white mt-1">
               {skill.name}
             </p>
           </div>
@@ -91,9 +92,15 @@ const Skills = () => {
           <span className="block w-24 h-1 bg-gradient-to-r from-cyan-500 to-teal-500 mx-auto mt-6 rounded-full shadow-[0_0_20px_rgba(6,182,212,0.5)]" />
         </h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 md:gap-12">
+        {/* First row – 3 cards: Frontend, Backend, Database */}
+        <div className="grid md:grid-cols-3 gap-8 md:gap-12 mb-12 md:mb-16">
           <SkillCategoryCard title="Frontend" skills={frontend} />
           <SkillCategoryCard title="Backend" skills={backend} />
+          <SkillCategoryCard title="Database" skills={database} />
+        </div>
+
+        {/* Second row – 2 cards centered */}
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 mb-12 md:mb-16 justify-center max-w-4xl mx-auto items-center">
           <SkillCategoryCard title="CMS & Page Builders" skills={cms} />
           <SkillCategoryCard title="Tools & Others" skills={toolsOthers} />
         </div>
