@@ -9,7 +9,7 @@ const Projects = () => {
       title: "SmritiVerse",
       desc: "Memorial platform with custom theme, photo galleries, tribute sections, family tree, and easy content management for preserving memories.",
       tech: ["WordPress", "PHP", "CSS3", "Elementor"],
-      image: "../src/assets/images/smritiverse.png",
+      image: "../src/assets/images/singhproperties.png",
       link: "https://smritiverse.org/",
     },
     {
