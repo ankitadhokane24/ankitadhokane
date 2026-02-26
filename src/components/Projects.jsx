@@ -23,7 +23,7 @@ const Projects = () => {
       title: "3PDTechnologies",
       desc: "IT services website showcasing software development, cloud solutions, cybersecurity, testimonials, and modern responsive layout.",
       tech: ["WordPress", "Tatsu", "PHP", "JS"],
-      image: "pdtech",
+      image: pdtech,
       link: "https://3pdtech.digital/",
     },
     {
