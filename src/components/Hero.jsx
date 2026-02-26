@@ -43,7 +43,7 @@ const Hero = () => {
         {/* Tagline */}
         <p className="text-lg md:text-2xl text-slate-300 max-w-4xl mx-auto mb-12 md:mb-16 leading-relaxed">
           Building scalable web experiences with WordPress, MERN & modern tools.<br />
-          Based in Nashik, Maharashtra, India.
+          Based in Nashik, Maharashtra,India.
         </p>
 
         {/* Buttons */}
