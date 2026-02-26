@@ -7,28 +7,28 @@ const Projects = () => {
   const wpProjects = [
     {
       title: "SmritiVerse",
-      desc: "A visually stunning memorial and remembrance platform built with a custom WordPress theme. Features elegant design, photo galleries, tribute sections, family tree integration, and easy content management for preserving memories.",
+      desc: "Memorial platform with custom theme, photo galleries, tribute sections, family tree, and easy content management for preserving memories.",
       tech: ["WordPress", "PHP", "CSS3", "Elementor"],
       image: "../src/assets/images/smritiverse.png",
       link: "https://smritiverse.org/",
     },
     {
       title: "3PDTechnologies",
-      desc: "Professional IT services company website showcasing digital transformation solutions, software development, cloud services, and cybersecurity offerings. Clean, modern layout with service highlights, client testimonials, and contact forms.",
+      desc: "IT services website showcasing software development, cloud solutions, cybersecurity, testimonials, and modern responsive layout.",
       tech: ["WordPress", "Tatsu", "PHP", "JS"],
       image: "../src/assets/images/3pdtech.png",
       link: "https://3pdtech.digital/",
     },
     {
       title: "I am Samarth",
-      desc: "Inspirational personal branding and motivational platform featuring blogs, success stories, life coaching content, video embeds, and interactive community sections. Built with a highly customized and responsive WordPress theme.",
+      desc: "Motivational platform with blogs, success stories, coaching content, video embeds, and interactive community features.",
       tech: ["WordPress", "Elementor", "PHP", "JS"],
       image: "../src/assets/images/iamsamarth.png",
       link: "https://iamsamarth.com/",
     },
     {
       title: "Samarth CSR",
-      desc: "Corporate Social Responsibility initiative website highlighting education, healthcare, environment, and community development programs. Includes impact reports, donation options, photo galleries, and transparent reporting features.",
+      desc: "CSR initiative site highlighting education, healthcare, environment programs, impact reports, donation options, and galleries.",
       tech: ["WordPress", "Elementor", "PHP", "JS", "Bootstrap"],
       image: "../src/assets/images/Csr.png",
       link: "https://samarthtrust.in/csr/",
@@ -37,35 +37,41 @@ const Projects = () => {
 
   const mernProjects = [
     {
-      title: "Real-Time Chat Application",
-      desc: "A full-stack real-time messaging platform with user authentication, private/group chats, live typing indicators, message reactions, online/offline status, and persistent chat history using WebSockets for instant communication.",
-      tech: ["React", "Node.js", "MongoDB", "Socket.io"],
-      image: "/images/projects/chat-app.jpg",
-      link: "https://your-chat-app-demo.com", // replace with real if deployed
+      title: "ElectroTrack – Inventory & HR Management System",
+      desc: "Ongoing in-progress project for electrical goods inventory tracking, employee attendance, salary calculation, reports, and admin dashboard using MERN stack.",
+      tech: ["React", "Node.js", "Express", "MongoDB"],
+      image: "../src/assets/images/Omelectricals.png",
+      link: "#",
+      inProgress: true, // ← flag for badge
     },
-    {
-      title: "Task Management Dashboard",
-      desc: "Kanban-style project management tool with drag-and-drop boards, task prioritization, real-time collaboration, user roles, deadlines, notifications, and progress tracking — built with modern MERN stack for seamless performance.",
-      tech: ["React", "Express", "MongoDB", "Tailwind"],
-      image: "/images/projects/task-dashboard.jpg",
-      link: "https://your-task-demo.com", // replace with real if deployed
-    },
-    // You can add more MERN projects here later
   ];
 
   const externalProjects = [
     {
       title: "Singh Properties",
-      desc: "Real estate agency website featuring property listings, advanced search filters, high-quality photo galleries, virtual tours, inquiry forms, and client testimonials to help users find their dream homes in Pune and surrounding areas.",
+      desc: "Real estate portal with property listings, advanced search, photo galleries, virtual tours, inquiry forms, and client testimonials.",
       tech: ["WordPress", "PHP", "JS"],
       image: "../src/assets/images/singhproperties.png",
       link: "https://singhpropertiespune.in/",
     },
-    // Add more external/client projects here
+   {
+    title: "Silver Lotus School",
+    desc: "Basic static school website showcasing institution details, facilities, infrastructure, academic programs, admission process, photo gallery, and contact information with a clean and responsive design.",
+    tech: ["WordPress", "PHP", "JS"],
+    image: "../src/assets/images/SilverLotusSchool.png",
+    link: "https://silverlotusschool.com/",
+  },
   ];
 
-  const ProjectCard = ({ title, desc, tech, image, link }) => (
-    <div className="bg-slate-800/70 rounded-2xl overflow-hidden border border-cyan-900/50 glow-cyan-hover transition-all duration-300 hover:scale-[1.02] hover:shadow-cyan-500/40 group flex flex-col">
+  const ProjectCard = ({ title, desc, tech, image, link, inProgress = false }) => (
+    <div className="bg-slate-800/70 rounded-2xl overflow-hidden border border-cyan-900/50 glow-cyan-hover transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(6,182,212,0.5)] group flex flex-col relative">
+      {/* In Progress Badge (only for ongoing projects) */}
+      {inProgress && (
+        <div className="absolute top-4 right-4 z-10 px-4 py-1 bg-gradient-to-r from-cyan-600 to-teal-600 text-white text-xs font-medium rounded-full shadow-md shadow-cyan-500/40">
+          In Progress
+        </div>
+      )}
+
       {/* Image */}
       <div className="h-48 md:h-56 overflow-hidden relative">
         <img
@@ -79,7 +85,9 @@ const Projects = () => {
 
       {/* Content */}
       <div className="p-6 md:p-8 flex flex-col flex-grow">
-        <h4 className="text-2xl font-bold mb-3 text-white">{title}</h4>
+        <h4 className="text-2xl font-bold mb-3 bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent">
+          {title}
+        </h4>
         <p className="text-slate-300 mb-6 text-base flex-grow">{desc}</p>
 
         {/* Tech badges */}
@@ -87,7 +95,7 @@ const Projects = () => {
           {tech.map((t) => (
             <span
               key={t}
-              className="px-3 py-1 bg-cyan-900/50 rounded-full text-xs text-cyan-300 font-medium"
+              className="px-3 py-1 bg-gradient-to-r from-cyan-900/50 to-teal-900/50 rounded-full text-xs text-cyan-300 font-medium"
             >
               {t}
             </span>
@@ -95,12 +103,12 @@ const Projects = () => {
         </div>
 
         {/* Live Demo Button */}
-        {link && (
+        {link && link !== "#" && (
           <a
             href={link}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-auto inline-block bg-cyan-600 hover:bg-cyan-500 text-white font-medium text-sm md:text-base py-3 px-6 rounded-lg text-center transition-all duration-300 shadow-md shadow-cyan-500/30 hover:shadow-cyan-500/50"
+            className="mt-auto inline-block bg-gradient-to-r from-cyan-600 to-teal-600 hover:from-cyan-500 hover:to-teal-500 text-white font-medium text-sm md:text-base py-3 px-6 rounded-lg text-center transition-all duration-300 shadow-md shadow-cyan-500/30 hover:shadow-cyan-500/50"
           >
             View Live Demo →
           </a>
@@ -109,7 +117,6 @@ const Projects = () => {
     </div>
   );
 
-  // Map tab to project array
   const getActiveProjects = () => {
     switch (activeTab) {
       case 'wordpress':
@@ -131,7 +138,7 @@ const Projects = () => {
           <h2 className="text-5xl md:text-7xl font-black text-white">
             Projects
           </h2>
-          <div className="w-24 h-1 bg-cyan-500 mx-auto mt-6 rounded-full shadow-[0_0_20px_#06b6d4]"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-teal-500 mx-auto mt-6 rounded-full shadow-[0_0_20px_rgba(6,182,212,0.5)]"></div>
         </div>
 
         {/* Tabs */}
@@ -141,8 +148,8 @@ const Projects = () => {
               onClick={() => setActiveTab('wordpress')}
               className={`px-5 py-3 rounded-full text-sm md:text-base font-medium transition-all duration-300 ${
                 activeTab === 'wordpress'
-                  ? 'bg-cyan-600 text-white shadow-lg shadow-cyan-500/30'
-                  : 'text-cyan-400 hover:text-cyan-300'
+                  ? 'bg-gradient-to-r from-cyan-600 to-teal-600 text-white shadow-lg shadow-cyan-500/30'
+                  : 'text-cyan-400 hover:bg-gradient-to-r hover:from-cyan-600/30 hover:to-teal-600/30 hover:text-white'
               }`}
             >
               WordPress
@@ -151,8 +158,8 @@ const Projects = () => {
               onClick={() => setActiveTab('mern')}
               className={`px-5 py-3 rounded-full text-sm md:text-base font-medium transition-all duration-300 ${
                 activeTab === 'mern'
-                  ? 'bg-cyan-600 text-white shadow-lg shadow-cyan-500/30'
-                  : 'text-cyan-400 hover:text-cyan-300'
+                  ? 'bg-gradient-to-r from-cyan-600 to-teal-600 text-white shadow-lg shadow-cyan-500/30'
+                  : 'text-cyan-400 hover:bg-gradient-to-r hover:from-cyan-600/30 hover:to-teal-600/30 hover:text-white'
               }`}
             >
               MERN
@@ -161,8 +168,8 @@ const Projects = () => {
               onClick={() => setActiveTab('external')}
               className={`px-5 py-3 rounded-full text-sm md:text-base font-medium transition-all duration-300 ${
                 activeTab === 'external'
-                  ? 'bg-cyan-600 text-white shadow-lg shadow-cyan-500/30'
-                  : 'text-cyan-400 hover:text-cyan-300'
+                  ? 'bg-gradient-to-r from-cyan-600 to-teal-600 text-white shadow-lg shadow-cyan-500/30'
+                  : 'text-cyan-400 hover:bg-gradient-to-r hover:from-cyan-600/30 hover:to-teal-600/30 hover:text-white'
               }`}
             >
               External / Client

@@ -1,3 +1,7 @@
+// src/components/Hero.tsx
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDownload } from '@fortawesome/free-solid-svg-icons';
+
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-950">
@@ -8,47 +12,75 @@ const Hero = () => {
       {/* Main Content */}
       <div className="relative z-10 text-center px-6 max-w-6xl">
         {/* Badge */}
-        <div className="inline-block mt-20 mb-8 px-6 py-3 bg-cyan-600/20 backdrop-blur-md border border-cyan-500/30 rounded-full text-cyan-400 text-sm md:text-base uppercase tracking-wider font-medium">
-          WEB DEVELOPER
-        </div>
+          <div className="
+            inline-block mt-20 mb-8 px-6 py-3 
+            bg-gradient-to-r from-cyan-900/30 to-teal-900/20 
+            backdrop-blur-xl 
+            border border-gradient-to-r from-cyan-500/40 to-teal-500/40 
+            rounded-full 
+            bg-gradient-to-r from-cyan-300 via-teal-300 to-cyan-300 bg-clip-text text-transparent 
+            text-sm md:text-base uppercase tracking-wider font-bold
+          ">
+            WEB DEVELOPER
+          </div>
 
         {/* Headline */}
         <h1 className="text-5xl sm:text-7xl md:text-9xl font-black leading-none mb-6 text-white">
           Hi, I'm
           <br />
-          <span className="text-cyan-400 block mt-2 md:mt-4">Ankita Dhokane.</span>
+          <span className="
+            bg-gradient-to-r from-cyan-400 to-teal-400 
+            bg-clip-text 
+            text-transparent 
+            block mt-2 md:mt-4 
+            transition-all duration-300 
+            hover:drop-shadow-[0_0_20px_rgba(6,182,212,0.7)]
+          ">
+            Ankita Dhokane.
+          </span>
         </h1>
 
         {/* Tagline */}
         <p className="text-lg md:text-2xl text-slate-300 max-w-4xl mx-auto mb-12 md:mb-16 leading-relaxed">
-          Building scalable web experiences with MERN, WordPress & modern tools.<br />
+          Building scalable web experiences with WordPress, MERN & modern tools.<br />
           Based in Nashik, Maharashtra, India.
         </p>
 
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+          {/* Glassmorphism Explore My Work Button */}
           <a
             href="#projects"
-            className="inline-block px-10 py-5 bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-lg rounded-full transition-all duration-300 shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/50 hover:scale-105"
+            className="
+              inline-block px-10 py-5 
+              bg-white/10 backdrop-blur-2xl 
+              border border-white/20 
+              text-white font-bold text-lg 
+              rounded-full 
+              transition-all duration-300 
+              shadow-lg shadow-black/20 
+              hover:shadow-cyan-500/40 
+              hover:bg-white/15 
+              hover:border-cyan-400/40 
+              hover:scale-105 
+              hover:text-cyan-100
+            "
           >
             Explore My Work
           </a>
+          {/* Download Resume Button (unchanged) */}
           <a
-            href="#about"
-            className="inline-block px-10 py-5 border-2 border-cyan-500 text-cyan-400 hover:bg-cyan-500/10 font-bold text-lg rounded-full transition-all duration-300 hover:scale-105"
+            href="https://drive.google.com/file/d/1kW1W7yz3EbVgTS4avSYdAQoSUdh19FQW/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            download="Ankita_Dhokane_Resume.pdf"
+            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-cyan-600 to-teal-600 hover:from-cyan-500 hover:to-teal-500 text-white font-bold text-lg rounded-full transition-all duration-300 shadow-lg shadow-cyan-500/40 hover:shadow-cyan-500/60 hover:scale-105"
           >
-            About Me
+            <FontAwesomeIcon icon={faDownload} className="mr-3 text-xl" />
+            Download Resume
           </a>
         </div>
       </div>
-
-      {/* Fixed Scroll Indicator – pinned to bottom of viewport
-      <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center text-cyan-400 pointer-events-none">
-        <p className="text-sm uppercase tracking-widest mb-2 opacity-80">SCROLL</p>
-        <div className="animate-bounce">
-          <i className="fas fa-chevron-down text-3xl"></i>
-        </div>
-      </div> */}
     </section>
   );
 };
