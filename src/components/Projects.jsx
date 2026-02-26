@@ -42,7 +42,7 @@ const Projects = () => {
       tech: ["React", "Node.js", "Express", "MongoDB"],
       image: "../src/assets/images/Omelectricals.png",
       link: "#",
-      inProgress: true, // ← flag for badge
+      inProgress: true,
     },
   ];
 
@@ -54,61 +54,101 @@ const Projects = () => {
       image: "../src/assets/images/singhproperties.png",
       link: "https://singhpropertiespune.in/",
     },
-   {
-    title: "Silver Lotus School",
-    desc: "Basic static school website showcasing institution details, facilities, infrastructure, academic programs, admission process, photo gallery, and contact information with a clean and responsive design.",
-    tech: ["WordPress", "PHP", "JS"],
-    image: "../src/assets/images/SilverLotusSchool.png",
-    link: "https://silverlotusschool.com/",
-  },
+    {
+      title: "Silver Lotus School",
+      desc: "Basic static school website showcasing institution details, facilities, infrastructure, academic programs, admission process, photo gallery, and contact information with a clean and responsive design.",
+      tech: ["WordPress", "PHP", "JS"],
+      image: "../src/assets/images/SilverLotusSchool.png",
+      link: "https://silverlotusschool.com/",
+    },
   ];
 
   const ProjectCard = ({ title, desc, tech, image, link, inProgress = false }) => (
-    <div className="bg-slate-800/70 rounded-2xl overflow-hidden border border-cyan-900/50 glow-cyan-hover transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(6,182,212,0.5)] group flex flex-col relative">
-      {/* In Progress Badge (only for ongoing projects) */}
+    <div className="
+      bg-slate-800/60 backdrop-blur-md 
+      border border-cyan-900/50 rounded-2xl 
+      overflow-hidden transition-all duration-300 
+      hover:scale-[1.02] hover:shadow-[0_0_28px_rgba(6,182,212,0.45)]
+      group flex flex-col relative
+    ">
+      {/* In Progress Badge */}
       {inProgress && (
-        <div className="absolute top-4 right-4 z-10 px-4 py-1 bg-gradient-to-r from-cyan-600 to-teal-600 text-white text-xs font-medium rounded-full shadow-md shadow-cyan-500/40">
+        <div className="
+          absolute top-4 right-4 z-10 
+          px-4 py-1.5 
+          bg-gradient-to-r from-cyan-600 to-teal-600 
+          text-white text-xs sm:text-sm font-medium 
+          rounded-full shadow-md shadow-cyan-500/40
+        ">
           In Progress
         </div>
       )}
 
       {/* Image */}
-      <div className="h-48 md:h-56 overflow-hidden relative">
+      <div className="h-48 sm:h-52 md:h-56 overflow-hidden relative">
         <img
           src={image}
           alt={title}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent pointer-events-none"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none"></div>
       </div>
 
       {/* Content */}
-      <div className="p-6 md:p-8 flex flex-col flex-grow">
-        <h4 className="text-2xl font-bold mb-3 bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent">
+      <div className="p-6 sm:p-7 md:p-8 flex flex-col flex-grow">
+        <h4 className="
+          text-xl sm:text-2xl md:text-2.5xl 
+          font-bold mb-3 
+          bg-gradient-to-r from-cyan-400 to-teal-400 
+          bg-clip-text text-transparent 
+          leading-tight
+        ">
           {title}
         </h4>
-        <p className="text-slate-300 mb-6 text-base flex-grow">{desc}</p>
 
-        {/* Tech badges */}
-        <div className="flex flex-wrap gap-2 mb-6">
+        <p className="
+          text-base sm:text-lg 
+          text-slate-300 mb-6 
+          flex-grow leading-relaxed
+        ">
+          {desc}
+        </p>
+
+        {/* Tech tags */}
+        <div className="flex flex-wrap gap-2.5 mb-6">
           {tech.map((t) => (
             <span
               key={t}
-              className="px-3 py-1 bg-gradient-to-r from-cyan-900/50 to-teal-900/50 rounded-full text-xs text-cyan-300 font-medium"
+              className="
+                px-3.5 py-1.5 
+                bg-gradient-to-r from-cyan-900/50 to-teal-900/50 
+                rounded-full 
+                text-xs sm:text-sm 
+                text-cyan-200 font-medium
+              "
             >
               {t}
             </span>
           ))}
         </div>
 
-        {/* Live Demo Button */}
+        {/* Button */}
         {link && link !== "#" && (
           <a
             href={link}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-auto inline-block bg-gradient-to-r from-cyan-600 to-teal-600 hover:from-cyan-500 hover:to-teal-500 text-white font-medium text-sm md:text-base py-3 px-6 rounded-lg text-center transition-all duration-300 shadow-md shadow-cyan-500/30 hover:shadow-cyan-500/50"
+            className="
+              mt-auto inline-flex items-center justify-center 
+              bg-gradient-to-r from-cyan-600 to-teal-600 
+              hover:from-cyan-500 hover:to-teal-500 
+              text-white font-medium 
+              text-sm sm:text-base 
+              py-3 px-6 rounded-lg 
+              transition-all duration-300 
+              shadow-md shadow-cyan-500/30 hover:shadow-cyan-500/50
+            "
           >
             View Live Demo →
           </a>
@@ -119,66 +159,85 @@ const Projects = () => {
 
   const getActiveProjects = () => {
     switch (activeTab) {
-      case 'wordpress':
-        return wpProjects;
-      case 'mern':
-        return mernProjects;
-      case 'external':
-        return externalProjects;
-      default:
-        return wpProjects;
+      case 'wordpress': return wpProjects;
+      case 'mern':      return mernProjects;
+      case 'external':  return externalProjects;
+      default:          return wpProjects;
     }
   };
 
   return (
-    <section id="projects" className="py-24 bg-slate-950">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Heading */}
-        <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-7xl font-black text-white">
+    <section id="projects" className="py-16 md:py-24 lg:py-28 bg-slate-950">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+        {/* Heading – consistent with other sections */}
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="
+            text-4xl sm:text-5xl md:text-6xl lg:text-6xl 
+            font-black text-white leading-tight
+          ">
             Projects
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-teal-500 mx-auto mt-6 rounded-full shadow-[0_0_20px_rgba(6,182,212,0.5)]"></div>
+          <div className="
+            w-20 sm:w-24 h-1 
+            bg-gradient-to-r from-cyan-500 to-teal-500 
+            mx-auto mt-5 sm:mt-6 
+            rounded-full 
+            shadow-[0_0_16px_rgba(6,182,212,0.4)]
+          "></div>
         </div>
 
         {/* Tabs */}
-        <div className="flex justify-center mb-12">
-          <div className="inline-flex bg-slate-800/60 backdrop-blur-md rounded-full border border-cyan-900/50 p-1.5">
+        <div className="flex justify-center mb-10 md:mb-12">
+          <div className="
+            inline-flex bg-slate-800/60 backdrop-blur-md 
+            rounded-full border border-cyan-900/50 p-1.5 sm:p-2
+          ">
             <button
               onClick={() => setActiveTab('wordpress')}
-              className={`px-5 py-3 rounded-full text-sm md:text-base font-medium transition-all duration-300 ${
-                activeTab === 'wordpress'
-                  ? 'bg-gradient-to-r from-cyan-600 to-teal-600 text-white shadow-lg shadow-cyan-500/30'
-                  : 'text-cyan-400 hover:bg-gradient-to-r hover:from-cyan-600/30 hover:to-teal-600/30 hover:text-white'
-              }`}
+              className={`
+                px-4 sm:px-6 py-2.5 sm:py-3 rounded-full 
+                text-sm sm:text-base font-medium transition-all duration-300
+                ${activeTab === 'wordpress'
+                  ? 'bg-gradient-to-r from-cyan-600 to-teal-600 text-white shadow-lg shadow-cyan-500/40'
+                  : 'text-cyan-300 hover:text-white hover:bg-gradient-to-r hover:from-cyan-700/40 hover:to-teal-700/30'
+                }
+              `}
             >
               WordPress
             </button>
+
             <button
               onClick={() => setActiveTab('mern')}
-              className={`px-5 py-3 rounded-full text-sm md:text-base font-medium transition-all duration-300 ${
-                activeTab === 'mern'
-                  ? 'bg-gradient-to-r from-cyan-600 to-teal-600 text-white shadow-lg shadow-cyan-500/30'
-                  : 'text-cyan-400 hover:bg-gradient-to-r hover:from-cyan-600/30 hover:to-teal-600/30 hover:text-white'
-              }`}
+              className={`
+                px-4 sm:px-6 py-2.5 sm:py-3 rounded-full 
+                text-sm sm:text-base font-medium transition-all duration-300
+                ${activeTab === 'mern'
+                  ? 'bg-gradient-to-r from-cyan-600 to-teal-600 text-white shadow-lg shadow-cyan-500/40'
+                  : 'text-cyan-300 hover:text-white hover:bg-gradient-to-r hover:from-cyan-700/40 hover:to-teal-700/30'
+                }
+              `}
             >
               MERN
             </button>
+
             <button
               onClick={() => setActiveTab('external')}
-              className={`px-5 py-3 rounded-full text-sm md:text-base font-medium transition-all duration-300 ${
-                activeTab === 'external'
-                  ? 'bg-gradient-to-r from-cyan-600 to-teal-600 text-white shadow-lg shadow-cyan-500/30'
-                  : 'text-cyan-400 hover:bg-gradient-to-r hover:from-cyan-600/30 hover:to-teal-600/30 hover:text-white'
-              }`}
+              className={`
+                px-4 sm:px-6 py-2.5 sm:py-3 rounded-full 
+                text-sm sm:text-base font-medium transition-all duration-300
+                ${activeTab === 'external'
+                  ? 'bg-gradient-to-r from-cyan-600 to-teal-600 text-white shadow-lg shadow-cyan-500/40'
+                  : 'text-cyan-300 hover:text-white hover:bg-gradient-to-r hover:from-cyan-700/40 hover:to-teal-700/30'
+                }
+              `}
             >
-              External / Client
+              Client Projects
             </button>
           </div>
         </div>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-9 lg:gap-10">
           {getActiveProjects().map((project, index) => (
             <ProjectCard key={index} {...project} />
           ))}
@@ -186,7 +245,7 @@ const Projects = () => {
 
         {/* Empty state */}
         {getActiveProjects().length === 0 && (
-          <p className="text-center text-slate-400 text-xl mt-12">
+          <p className="text-center text-slate-400 text-lg sm:text-xl mt-12">
             More projects coming soon...
           </p>
         )}

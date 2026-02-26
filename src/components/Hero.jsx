@@ -70,7 +70,7 @@ const Hero = () => {
 
           {/* Download Resume Button – smaller */}
           <a
-            href="https://drive.google.com/file/d/1kW1W7yz3EbVgTS4avSYdAQoSUdh19FQW/view?usp=sharing"
+            href="https://drive.google.com/file/d/1R0JMHRYv25DsPlbLbK5fvViQ6z6f0K1D/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             download="Ankita_Dhokane_Resume.pdf"
